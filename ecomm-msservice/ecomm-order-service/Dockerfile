@@ -1,4 +1,4 @@
-# Use a smaller base image
+docker # Use a smaller base image
 FROM adoptopenjdk/openjdk11:alpine-jre
 
 # Set the working directory to /app

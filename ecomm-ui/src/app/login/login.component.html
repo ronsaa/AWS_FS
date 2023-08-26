@@ -1,0 +1,30 @@
+<div class="container">
+  <form #loginForm="ngForm">
+    <div class="row d-flex justify-content-center login-box">
+      <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
+        <h5 class="login-title text-center">Login to my account</h5>
+        <label for="emailId" class="col-form-label">Username</label>
+        <div class="input-group">
+          <input trim required type="text" class="form-control" id="emailId" name="emailId"
+            [(ngModel)]="username" placeholder="Enter Username" />
+          <!-- <div class="input-group-text">
+            <i class="bi bi-person"></i>
+          </div> -->
+        </div>
+        <label for="password" class="col-form-label">Password</label>
+        <div class="input-group">
+          <input type="password" required  class="form-control" id="password" name="password"
+            [(ngModel)]="password" placeholder="Enter password" />
+
+        </div>
+        <button (click)="onSubmit()"  class="btn btn-primary loginButton">Login</button>
+        <div class="createNew">Forgot Password?
+          <a href="#" routerLink="/register">Click here to create your account</a>
+        </div>
+        <div class="createNew">
+          <label>Version 0.1.1</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

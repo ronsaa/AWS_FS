@@ -1,0 +1,24 @@
+.login-box{
+  align-content: center;
+  height: 100vh;
+}
+.login-title{
+  font-size: 1.5rem;
+  color: #130401;
+  font-weight: 500;
+  padding: 15px
+}
+.loginButton{
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+.createNew{
+  text-align: center;
+  font-size: 13px;
+  margin: 20px 0 0;
+}
+.login-box input{
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}

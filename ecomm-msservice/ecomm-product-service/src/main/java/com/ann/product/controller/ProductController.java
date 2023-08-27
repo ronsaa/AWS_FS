@@ -1,17 +1,24 @@
 package com.ann.product.controller;
 
-import com.ann.product.exception.ProductNotFoundException;
-import com.ann.product.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import com.ann.product.service.ProductService;
-import com.ann.product.model.Product;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ann.product.exception.ProductNotFoundException;
+import com.ann.product.model.Product;
+import com.ann.product.repository.ProductRepository;
+import com.ann.product.service.ProductService;
+
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController()
 @RequestMapping("/api/products/")
 public class ProductController {

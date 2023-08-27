@@ -20,10 +20,11 @@ export class OrderComponent implements OnInit{
 
 
   columnDefs= [
-    {headerName: 'ID', field: 'id',valueFormatter: this.getFormattedTextValue,filter: true,sortable: true },
+    {headerName: 'ID', field: 'id',valueFormatter: this.getFormattedTextValue,filter: true,sortable: true,width: 100 },
     {headerName: 'Name', field: 'name',filter: true,sortable: true },
     {headerName: 'Order By', field: 'orderBy', filter: true,sortable: true},
-    {headerName: 'Status', field: 'status',filter: true,sortable: true},
+    {headerName: 'Status', field: 'status',filter: true,sortable: true,width: 150},
+    {headerName: 'Quantity', field: 'quantity',filter: true,sortable: true,width: 150 },
     {headerName: 'Total Amount ($)', field: 'totalAmount',filter: true,sortable: true},
     {headerName: 'Updated', field: 'updated',filter: true,sortable: true},
 

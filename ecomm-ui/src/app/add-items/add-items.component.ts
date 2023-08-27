@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 const ORDER_URL = environment.ORDER_URL;
+const PRODUCT_URL = environment.PRODUCT_URL;
 @Component({
   selector: 'app-add-items',
   templateUrl: './add-items.component.html',
@@ -32,7 +33,7 @@ export class AddItemsComponent implements OnInit{
   }
 
   createProduct() {
-    return this.http.post(ORDER_URL
+    return this.http.post(PRODUCT_URL
       ,this.form.value ).subscribe(
         data => {
           console.log(data)

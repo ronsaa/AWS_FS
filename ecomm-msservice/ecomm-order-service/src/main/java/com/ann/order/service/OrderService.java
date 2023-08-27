@@ -20,6 +20,11 @@ public class OrderService {
 		return orderRepository.findAll();
 				
 	}
+	
+	public Optional<Order> findById(String id) {
+		return orderRepository.findById(id);
+				
+	}
 
 	public Order getOrderById(Long id) throws OrderNotFoundException {
 		Optional<Order> product = orderRepository.findAll()
@@ -29,6 +34,7 @@ public class OrderService {
 		if (product.isPresent()) {
 			return product.get();
 		} else {
+			
 			throw new OrderNotFoundException("Product "+id+ " not found!");
 		}
 	}

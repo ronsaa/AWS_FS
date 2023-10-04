@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
+import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-login',
@@ -46,3 +47,4 @@ export class LoginComponent  {
   }
 
 }
+

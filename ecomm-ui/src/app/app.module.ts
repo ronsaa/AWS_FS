@@ -15,6 +15,11 @@ import { AddItemsComponent } from './add-items/add-items.component'
 import { DatePipe } from '@angular/common';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LogoutComponent } from './logout/logout.component';
+import { Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+(window as any).global = window;
 
 
 @NgModule({

@@ -21,6 +21,7 @@
     "@popperjs/core": "^2.11.7",
     "ag-grid-angular": "^29.2.0",
     "ag-grid-community": "^29.2.0",
+    "aws-amplify": "^5.3.11",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "rxjs": "~7.8.0",

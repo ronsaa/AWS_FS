@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Auth } from 'aws-amplify';
 
 
 @Component({
@@ -23,7 +24,25 @@ export class RegisterPageComponent implements OnInit {
     });
   }
 
+  async signUp() {
 
+    const username = this.form.get('username').value;
+    const password = this.form.get('password').value;
+    const email = this.form.get('email').value;
+
+    try {
+
+      await Auth.signUp({
+        username,password,
+        attributes: {
+          email
+        },
+      });
+      console.log('Sign-up successful');
+    } catch (error) {
+      console.error('Error signing up:', error);
+    }
+  }
   onSubmit() {
    console.log(this.form.value);
    var formData : any = new FormData();

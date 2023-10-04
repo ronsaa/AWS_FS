@@ -20,8 +20,9 @@
             "outputPath": "dist/ecomm-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
+            "polyfills": [ 
+              "zone.js",
+              "src/global.ts"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -90,7 +91,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "src/global.ts"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [

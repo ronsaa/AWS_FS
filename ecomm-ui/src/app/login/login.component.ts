@@ -18,33 +18,20 @@ export class LoginComponent  {
     invalidLogin = false
 
   constructor(private router: Router, private http: HttpClient, private authenticationService: AuthenticationService) {}
+  
 
-  public onSubmit(): void {
-    // TODO: Add authentication logic here
-    if(this.username == 'admin' && this.password== 'admin'){
-       this.isAuthenticated = true;
-    }
-
-    if (this.isAuthenticated) {
-      this.router.navigate(['/home']);
+  async signIn() {
+    try {
+      const user = await Auth.signIn(this.username, this.password);
+      console.log('Sign-in successful', user);
+    } catch (error) {
+      console.error('Error signing in:', error);
     }
   }
-
-  handleJWTAuthLogin() {
-    this.authenticationService.executeJWTAuthenticationService(this.username, this.password)
-        .subscribe(
-          data => {
-            console.log(data)
-            // this.router.navigate(['/home', this.username])
-            this.router.navigate(['/home'])
-            this.invalidLogin = false
-          },
-          error => {
-            console.log(error)
-            this.invalidLogin = true
-          }
-        )
-  }
-
 }
+
+
+
+
+
 

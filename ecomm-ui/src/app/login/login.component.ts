@@ -24,10 +24,17 @@ export class LoginComponent  {
     try {
       const user = await Auth.signIn(this.username, this.password);
       console.log('Sign-in successful', user);
-      this.router.navigate(['/home'])
+      
+      this.handleJWTAuthLogin();
     } catch (error) {
       console.error('Error signing in:', error);
     }
+  }
+  handleJWTAuthLogin() {
+    this.authenticationService.executeJWTAuthenticationService(this.username, this.password);
+       
+            this.router.navigate(['/home'])
+    
   }
 }
 

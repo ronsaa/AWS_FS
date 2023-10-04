@@ -15,19 +15,10 @@ export class AuthenticationService {
 
   executeJWTAuthenticationService(username: string, password: string) {
 
-    return this.http.post<any>(
-      `${API_URL}/login`, {
-      username,
-      password
-    }).pipe(
-      map(
-        data => {
           sessionStorage.setItem(AUTHENTICATED_USER, username);
-          sessionStorage.setItem(TOKEN, `${data.token}`);
-          return data;
-        }
-      )
-    );
+          sessionStorage.setItem(TOKEN, password);
+       
+        
 
   }
 

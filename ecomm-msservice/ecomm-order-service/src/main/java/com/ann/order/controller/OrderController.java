@@ -22,7 +22,7 @@ import com.ann.order.model.Order;
 import com.ann.order.model.Product;
 import com.ann.order.service.OrderService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController()
 @RequestMapping("/api/orders/")
 public class OrderController {

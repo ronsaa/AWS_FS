@@ -24,6 +24,7 @@ export class LoginComponent  {
     try {
       const user = await Auth.signIn(this.username, this.password);
       console.log('Sign-in successful', user);
+      this.router.navigate(['/home'])
     } catch (error) {
       console.error('Error signing in:', error);
     }

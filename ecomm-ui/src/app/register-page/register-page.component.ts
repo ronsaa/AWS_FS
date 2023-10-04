@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
@@ -24,7 +25,13 @@ export class RegisterPageComponent implements OnInit {
 
 
   onSubmit() {
-   console.log(this.form.value)
+   console.log(this.form.value);
+   var formData : any = new FormData();
+   formData.append("name",this.form.get('name').value);
+   formData.append("email",this.form.get('email').value);
+   formData.append("username",this.form.get('username').value);
+   formData.append("password",this.form.get('password').value);
   }
 
+  
 }

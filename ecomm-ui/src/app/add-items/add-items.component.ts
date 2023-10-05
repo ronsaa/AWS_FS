@@ -14,27 +14,13 @@ const PRODUCT_URL = environment.PRODUCT_URL;
 export class AddItemsComponent implements OnInit{
 
   selectedFile: File | undefined;
+  location : any;
 
-  constructor() {}
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
-  async uploadImage() {
-    if (!this.selectedFile) {
-      return;
-    }
-
-    try {
-      const result = await Storage.put('images/' + this.selectedFile.name, this.selectedFile, {
-        level: 'public', // Adjust the access level as needed
-      });
-      console.log('Image uploaded successfully. Key:', result.key);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
-  }
 
 
   form: FormGroup;
@@ -47,15 +33,27 @@ export class AddItemsComponent implements OnInit{
       description: new FormControl('', [Validators.required, Validators.email]),
       category: new FormControl('', ),
       image: new FormControl('', ),
+      imageUrl: new FormControl('', ),
       count: new FormControl('', )
     });
   }
 
 
   onSubmit() {
-   console.log(this.form.value)
-   this.uploadService.uploadFile(this.form.get('image').value);
-   this.createProduct()
+   console.log(this.form.value);
+   if (!this.selectedFile) {
+    return;
+  }
+    this.uploadService.uploadFile(this.selectedFile, (err, location) => {
+      if (err) {
+        console.error('Error uploading file:', err);
+      } else {
+        console.log('File uploaded successfully. S3 location:', location);
+        this.form.get('image').setValue(location);
+        console.log('form value - ',this.form.value);
+        this.createProduct();
+      }
+    });
   }
 
   createProduct() {

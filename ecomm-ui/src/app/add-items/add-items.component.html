@@ -27,8 +27,8 @@
         </div>
         <br />
         <div class="form-group">
-          <label for="image">image:</label>
-          <input id="image" class="form-control" formControlName="image" placeholder="Image URL"/>
+          <label for="imageUrl">image:</label>
+          <input id="imageUrl" class="form-control" formControlName="imageUrl" placeholder="Image URL"/>
         </div>
         <br />
         <div class="form-group">
@@ -65,8 +65,8 @@
         </div>
         <br>
         <div class="form-group">
-          <label for="image">Image:</label>
-          <input id="file" class="form-control" formControlName="image" accept="image/*" placeholder="Image URL"/>
+          <label for="imageUrl">Image:</label>
+          <input id="file" type="file" class="form-control" formControlName="imageUrl" (change)="onFileSelected($event)" accept="image/*" placeholder="Image URL"/>
         </div>
     </div>
     <div class="col">

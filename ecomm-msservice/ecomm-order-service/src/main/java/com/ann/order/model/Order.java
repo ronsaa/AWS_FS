@@ -2,6 +2,8 @@ package com.ann.order.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -23,6 +25,17 @@ public class Order {
 
 	    @Id
 	    @Column(name = "ORDER_ID", length = 255)
+	    private String slno;
+	    
+	    public String getSlno() {
+			return slno;
+		}
+
+		public void setSlno(String slno) {
+			this.slno = slno;
+		}
+
+		@Column(name = "PRODUCT_ID", length = 255)
 	    private String id;
 
 	    @Column(name = "ORDER_NAME", length = 255)

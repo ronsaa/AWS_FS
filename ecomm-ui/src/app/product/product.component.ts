@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 
+
 const ORDER_URL = environment.ORDER_URL;
 
 @Component({
@@ -31,6 +32,8 @@ export class ProductComponent {
   }
 
   onSubmit(item) {
+    const AUTHENTICATED_USER = 'authenticaterUser'
+    item.user = sessionStorage.getItem(AUTHENTICATED_USER);
     console.log(item)
     this.addToOrder(item)
    }

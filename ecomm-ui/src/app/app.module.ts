@@ -17,6 +17,10 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { LogoutComponent } from './logout/logout.component';
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { MatFormFieldModule } from '@angular/material/form-field'; // Import MatFormFieldModule
+import { MatInputModule } from '@angular/material/input'; // You might need other Material modules as well
+import { VerificationCodeDialogComponent } from './verification-code-dialog/verification-code-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 Amplify.configure(awsconfig);
 (window as any).global = window;
@@ -32,13 +36,14 @@ Amplify.configure(awsconfig);
     OrderComponent,
     AddItemsComponent,
     RegisterPageComponent,
-    LogoutComponent
+    LogoutComponent,
+    VerificationCodeDialogComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,
     FormsModule, ReactiveFormsModule,
-    AppRoutingModule,
-    AgGridModule
+    AppRoutingModule,MatDialogModule,
+    AgGridModule,MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,10 +21,24 @@ public class OrderService {
 				
 	}
 	
+	
+	public Optional<String> getMax() {
+		return orderRepository.findMax();
+				
+	}
+	public Optional<Order> findByIdAndOrderBy(String id,String user) {
+        return orderRepository.findByIdAndOrderBy(id, user);
+                
+    }
+	
 	public Optional<Order> findById(String id) {
 		return orderRepository.findById(id);
 				
 	}
+	public List<Order> findByOrderBy(String user) {
+        return orderRepository.findByOrderBy(user);
+                
+    }
 
 	public Order getOrderById(Long id) throws OrderNotFoundException {
 		Optional<Order> product = orderRepository.findAll()

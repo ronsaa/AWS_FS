@@ -18,7 +18,7 @@ import com.ann.product.repository.ProductRepository;
 import com.ann.product.service.ProductService;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController()
 @RequestMapping("/api/products/")
 public class ProductController {

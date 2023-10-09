@@ -33,7 +33,9 @@ export class OrderComponent implements OnInit{
 
   //Added ngOnInit funtion
   ngOnInit() {
-    this.http.get(this.ORDER_URL,{ headers})
+    const AUTHENTICATED_USER = 'authenticaterUser'
+    const params = {user : sessionStorage.getItem(AUTHENTICATED_USER)};
+    this.http.get(this.ORDER_URL,{params})
     .subscribe(
       (data) =>  {
         this.rowData = data;

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -36,14 +37,14 @@ public class OrderController {
 	}
 
 	@GetMapping("/")
-	public List<Order> getAllOrders() {
-		return orderService.getAllOrders();
+	public List<Order> getAllOrders(@RequestParam String user) {
+		return orderService.findByOrderBy(user);
 	}
 
 	@PostMapping("/")
 	public Order saveProduct(@RequestBody Product product) {
 		
-		
+		System.out.println(product.toString());
 
 		LocalDateTime lt = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -55,12 +56,13 @@ public class OrderController {
 		
 		try {
 			
-			Optional<Order> orderEntity = orderService.findById(String.valueOf(product.getId()));
+			Optional<Order> orderEntity = orderService.findByIdAndOrderBy(String.valueOf(product.getId()),product.getUser());
 			
 
 			if (orderEntity.isPresent()) {
-
+				
 				order = orderEntity.get();
+				System.out.println(order);
 				order.setQuantity(order.getQuantity() + 1);
 				order.setTotalAmount(BigDecimal.valueOf(order.getTotalAmount().doubleValue() + product.getPrice()));
 				order.setUpdated(formattedDateTime);
@@ -70,10 +72,17 @@ public class OrderController {
 			} else {
 
 				order = new Order();
-
+				
+				Optional<String> id = orderService.getMax();
+				if (id.isPresent()) {
+					order.setSlno(String.valueOf(Integer.valueOf(id.get())+1));
+				} else {
+					order.setSlno("1");
+				}
+				
 				order.setId(String.valueOf(product.getId()));
 				order.setName(product.getTitle());
-				order.setOrderBy("ADMIN");
+				order.setOrderBy(product.getUser());
 				order.setStatus("Added");
 				order.setTotalAmount(BigDecimal.valueOf(product.getPrice()));
 				order.setCreated(formattedDateTime);

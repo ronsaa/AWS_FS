@@ -1,0 +1,7 @@
+<h1>Enter Verification Code</h1>
+<form [formGroup]="verificationForm" (ngSubmit)="submitVerificationCode()">
+  <mat-form-field>
+    <input matInput formControlName="verificationCode" placeholder="Verification Code">
+  </mat-form-field>
+  <button mat-button type="submit">Submit</button>
+</form>

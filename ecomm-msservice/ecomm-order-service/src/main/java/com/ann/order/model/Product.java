@@ -19,6 +19,8 @@ public class Product {
     private String category;
     
     private String image;
+
+	private String user;
     
     private Double rating;
     
@@ -38,6 +40,14 @@ public class Product {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 	public Double getPrice() {
